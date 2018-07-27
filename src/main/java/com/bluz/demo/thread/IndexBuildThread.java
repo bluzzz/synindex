@@ -1,6 +1,5 @@
 package com.bluz.demo.thread;
 
-import com.bluz.demo.config.IndexConfig;
 import com.bluz.demo.config.IndexConfigBean;
 import com.bluz.demo.domain.IndexBuildResultManager;
 import com.bluz.demo.es.BulkProcessorListener;
@@ -9,9 +8,7 @@ import com.bluz.demo.es.EsManager;
 import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.action.index.IndexRequest;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * 建立索引线程
@@ -53,7 +50,7 @@ public class IndexBuildThread implements Runnable {
              * 2.想到再索引结束后通过标识来控制，有如下情况：
              * 比如数据全部生产完，队列中的数据也全部消费完，但是索引还未建立完成，此时标志还是未false
              * 程序再往下走，因为使用的是阻塞队列，所以会hang住，导致无法再次循环，即使索引建立完成，标志设为true
-             * 此线程也无法中止，慢慢会造成线程堆积
+             * 此线程也无法中止，慢慢会造成线程堆积，或者使用非阻塞方法
              *
              * 所以使用非阻塞队列+标识
              */

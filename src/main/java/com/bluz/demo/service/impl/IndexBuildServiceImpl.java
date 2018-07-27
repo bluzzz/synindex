@@ -1,13 +1,11 @@
 package com.bluz.demo.service.impl;
 
-import com.bluz.demo.config.IndexConfig;
 import com.bluz.demo.config.IndexConfigBean;
 import com.bluz.demo.config.IndexConfigFactory;
 import com.bluz.demo.domain.IndexBuildResultManager;
 import com.bluz.demo.domain.IndexInfo;
 import com.bluz.demo.es.IndexPreBuildProcessorFactory;
 import com.bluz.demo.exception.IndexBuildException;
-import com.bluz.demo.query.AbstractResultSetHandler;
 import com.bluz.demo.query.ResultSetHandler;
 import com.bluz.demo.query.ResultSetHandlerFactory;
 import com.bluz.demo.queue.IndexBuildQueueManager;
@@ -19,7 +17,6 @@ import com.bluz.demo.es.EsManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Service

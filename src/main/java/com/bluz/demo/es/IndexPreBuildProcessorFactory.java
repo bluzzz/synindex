@@ -1,6 +1,5 @@
 package com.bluz.demo.es;
 
-import com.bluz.demo.config.IndexConfig;
 import com.bluz.demo.config.IndexConfigBean;
 import org.springframework.stereotype.Component;
 
